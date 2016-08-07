@@ -1,0 +1,34 @@
+{
+  "1" : {
+      "author": "JONATHAN MARTIN",
+      "description": "The Hewlett Packard chief and Republican fund-raiser said Mrs. Clinton had reached out to her about a month ago, one of the first indications that the Democratic nominee is courting Republican leaders.",
+      "title": "Meg Whitman, Calling Donald Trump a ‘Demagogue,’ Will Support Hillary Clinton for President",
+      "url": "http://www.nytimes.com/2016/08/03/us/politics/meg-whitman-hillary-clinton.html",
+      "urlToImage": "https://static01.nyt.com/images/2016/08/03/us/03campaign/03campaign-jumbo.jpg",
+      "publishedAt": "2016-08-03T00:00:00"
+    },
+  "2" : {
+      "author": "JOSH KATZ",
+      "description": "The Upshot’s presidential forecast, updated daily.",
+      "title": "Who Will Be President?",
+      "url": "http://www.nytimes.com/interactive/2016/upshot/presidential-polls-forecast.html",
+      "urlToImage": "https://static01.nyt.com/images/2016/07/19/upshot/presidential-election-forecast-1468902507509/presidential-election-forecast-1468902507509-jumbo.png",
+      "publishedAt": "2016-08-04T00:00:00"
+    },
+  "3" : {
+      "author": "Ian Sample",
+      "description": "Successful short-term trials of three different vaccine formulations boost confidence that a viable human vaccine is on the horizon",
+      "title": "Scientists edge closer to creating effective Zika virus vaccine",
+      "url": "http://www.theguardian.com/world/2016/aug/04/scientists-edge-closer-to-creating-effective-zika-virus-vaccine",
+      "urlToImage": "https://media.guim.co.uk/b3c039d19c92c3ab571995b5c863e72aff8400c9/0_160_5000_3000/500.jpg",
+      "publishedAt": "2016-08-04T18:02:31Z"
+    },
+  "4" : {
+      "author": "Rowena Mason",
+      "description": "Former PM accused of reinforcing medieval-style system of patronage for friends and allies with controversial list",
+      "title": "George Osborne and Tory donors on Cameron's honours list",
+      "url": "http://www.theguardian.com/politics/2016/aug/04/george-osborne-and-michael-fallon-among-tories-to-get-honours",
+      "urlToImage": "https://media.guim.co.uk/86550215fdb48ffaab08b84abb099553f9a1789c/0_223_3842_2306/500.jpg",
+      "publishedAt": "2016-08-04T21:10:01Z"
+    }
+}
