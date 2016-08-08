@@ -1,10 +1,12 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
+import { AsyncStorage } from 'react-native';
 import { Navigation } from 'react-native-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 import thunk from 'redux-thunk';
 import * as reducers from './reducers';
 import * as appActions from './reducers/app/actions';
+import * as sourcesActions from './reducers/sources/actions';
 
 import { FirstColor } from './config/ThemeColors';
 
@@ -29,6 +31,13 @@ export default class App {
     this.populateIcons().then(() => {
       // Start app only if all icons are loaded
       this.startApp();
+
+      // Get sources selection from Aysnc Storage and store it in Redux Store
+      AsyncStorage.getItem('sourcesSelected', (err, result) => {
+        if(result) store.dispatch(sourcesActions.storeSelection(JSON.parse(result)));
+      });
+
+      // Monitor Firebase login state
       store.dispatch(appActions.monitorAuthState());
     }).catch((error) => {
       console.error(error);
