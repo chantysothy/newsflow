@@ -20,8 +20,8 @@ class DiscoverScreen extends Component {
   static navigatorButtons = {
     rightButtons: [
       {
-        title: 'Add', // for a textual button, provide the button title (label)
-        id: 'add', // id for this button, given in onNavigatorEvent(event) to help understand which button was clicked
+        title: 'Filter', // for a textual button, provide the button title (label)
+        id: 'filter', // id for this button, given in onNavigatorEvent(event) to help understand which button was clicked
       }
     ]
   };
@@ -31,23 +31,23 @@ class DiscoverScreen extends Component {
 
     this._itemsRef = rootRef.child('exampleItems');
 
-    this.addItem = this.addItem.bind(this);
+    this.showFilter = this.showFilter.bind(this);
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
 
   onNavigatorEvent(event) { // this is the onPress handler for the two buttons together
     if (event.type == 'NavBarButtonPress') { // this is the event type for button presses
-      if (event.id == 'add') {
-        this.addItem();
+      if (event.id == 'filter') {
+        this.showFilter();
       }
     }
   }
 
-  addItem() {
-    this._itemsRef.push({
-      title: chance.word(),
-      description: chance.paragraph({sentences: 2}),
-      urlToImage: chance.avatar({protocol: 'https'})
+  showFilter() {
+    this.props.navigator.showModal({
+      screen: "example.FilterScreen", // unique ID registered with Navigation.registerScreen
+      title: "Filter",
+      passProps: {}, // simple serializable object that will pass as props to the lightbox (optional)
     });
   }
 
