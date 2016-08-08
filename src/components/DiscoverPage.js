@@ -14,7 +14,7 @@ import { rootRef } from '../lib/firebaseInit.js';
 export default class DiscoverPage extends Component {
   static propTypes = {
     navigator: React.PropTypes.object,
-    selected: React.PropTypes.object, // news sources
+    sourcesSelected: React.PropTypes.object, // news sources
   };
 
   constructor(props) {
@@ -37,7 +37,7 @@ export default class DiscoverPage extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if(nextProps.selected !== this.props.selected) {
+    if(nextProps.sourcesSelected !== this.props.sourcesSelected) {
       // fetch again to force re-render in order to show/hide article
       this.fetchArticles(this._articlesRef);
     }
@@ -63,7 +63,7 @@ export default class DiscoverPage extends Component {
   }
 
   renderRow(item) {
-    let isFromSelectedSource = this.props.selected[item.data.sourceId];
+    let isFromSelectedSource = this.props.sourcesSelected[item.data.sourceId];
     return (
      isFromSelectedSource ? <ArticleCard itemData={item.data} itemKey={item._key} navigator={this.props.navigator}/> : null
     );

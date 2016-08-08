@@ -1,1 +1,1 @@
-export const SET_SELECTION = 'filter.SET_SELECTION';
+export const STORE_SELECTION = 'filter.STORE_SELECTION';

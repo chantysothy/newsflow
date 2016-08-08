@@ -5,9 +5,6 @@ import DiscoverPage from '../components/DiscoverPage';
 import { FirstColor } from '../config/ThemeColors';
 import { rootRef } from '../lib/firebaseInit.js';
 
-import Chance from 'chance';
-const chance = new Chance();
-
 // this is a traditional React component connected to the redux store
 class DiscoverScreen extends Component {
   static navigatorStyle = {
@@ -54,7 +51,7 @@ class DiscoverScreen extends Component {
 
   render() {
     return (
-      <DiscoverPage navigator={this.props.navigator} selected={this.props.selected}/>
+      <DiscoverPage navigator={this.props.navigator} sourcesSelected={this.props.sourcesSelected}/>
     );
   }
 
@@ -63,7 +60,7 @@ class DiscoverScreen extends Component {
 // which props do we want to inject, given the global state?
 function mapStateToProps(state) {
   return {
-    selected: state.sources.selected,
+    sourcesSelected: state.sources.selected,
   };
 }
 

@@ -14,12 +14,9 @@ const initialState = Immutable({
 
 export default function app(state = initialState, action = {}) {
   switch (action.type) {
-    case types.SET_SELECTION:
-      let selected = state.selected.merge({
-        [action.sourceId]: action.value
-      });
+    case types.STORE_SELECTION:
       return state.merge({
-        selected: selected
+        selected: action.selected
       });
 
     default:
