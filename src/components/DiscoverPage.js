@@ -13,7 +13,8 @@ import { rootRef } from '../lib/firebaseInit.js';
 
 export default class DiscoverPage extends Component {
   static propTypes = {
-    navigator: React.PropTypes.object
+    navigator: React.PropTypes.object,
+    selected: React.PropTypes.object, // news sources
   };
 
   constructor(props) {
@@ -27,15 +28,22 @@ export default class DiscoverPage extends Component {
 
     this._articlesRef = rootRef.child('articles');
 
+    this.fetchArticles = this.fetchArticles.bind(this);
     this.renderRow = this.renderRow.bind(this);
   }
 
   componentDidMount() {
-    this.listenForItems(this._articlesRef);
+    this.fetchArticles(this._articlesRef);
   }
 
-  listenForItems(articlesRef) {
-    articlesRef.orderByChild('negativeTimestamp').limitToLast(100).on('value', (snap) => {
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.selected !== this.props.selected) {
+      this.fetchArticles(this._articlesRef);
+    }
+  }
+
+  fetchArticles(articlesRef) {
+    articlesRef.orderByChild('negativeTimestamp').limitToLast(100).once('value', (snap) => {
 
       // get children as an array
       let items = [];
@@ -54,8 +62,9 @@ export default class DiscoverPage extends Component {
   }
 
   renderRow(item) {
+    let isFromSelectedSource = this.props.selected[item.data.sourceId];
     return (
-      <ArticleCard itemData={item.data} itemKey={item._key} navigator={this.props.navigator}/>
+     isFromSelectedSource ? <ArticleCard itemData={item.data} itemKey={item._key} navigator={this.props.navigator}/> : null
     );
   }
 

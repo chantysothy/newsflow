@@ -1,11 +1,15 @@
 import * as types from './actionTypes';
 import Immutable from 'seamless-immutable';
 
+import { Sources } from '../../config/Sources';
+
+let initialSelected = {};
+Sources.map((source) => { 
+  initialSelected[source.id] = true;
+});
+
 const initialState = Immutable({
-  selected: {
-    'bbcnews': false,
-    'bloomberg': true,
-  },
+  selected: initialSelected,
 });
 
 export default function app(state = initialState, action = {}) {

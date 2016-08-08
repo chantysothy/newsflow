@@ -53,7 +53,7 @@ class DiscoverScreen extends Component {
 
   render() {
     return (
-      <DiscoverPage navigator={this.props.navigator}/>
+      <DiscoverPage navigator={this.props.navigator} selected={this.props.selected}/>
     );
   }
 
@@ -62,7 +62,7 @@ class DiscoverScreen extends Component {
 // which props do we want to inject, given the global state?
 function mapStateToProps(state) {
   return {
-
+    selected: state.filter.selected,
   };
 }
 
