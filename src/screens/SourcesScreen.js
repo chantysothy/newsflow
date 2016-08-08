@@ -1,16 +1,17 @@
 import React, {Component, PropTypes} from 'react';
 import { connect } from 'react-redux';
-import * as filterActions from '../reducers/filter/actions';
+import * as sourcesActions from '../reducers/sources/actions';
 
-import FilterPage from '../components/FilterPage';
+import SourcesPage from '../components/SourcesPage';
 
 import { FirstColor } from '../config/ThemeColors';
 
 // this is a traditional React component connected to the redux store
-class FilterScreen extends Component {
+class SourcesScreen extends Component {
   static navigatorButtons = {
     leftButtons: [
       {
+        icon: require('../../img/cancel.png'),
         title: 'close', // for a textual button, provide the button title (label)
         id: 'close', // id for this button, given in onNavigatorEvent(event) to help understand which button was clicked
       },
@@ -44,12 +45,12 @@ class FilterScreen extends Component {
   }
 
   setSelection(sourceId, value) {
-    this.props.dispatch(filterActions.setSelection(sourceId, value));
+    this.props.dispatch(sourcesActions.setSelection(sourceId, value));
   }
 
   render() {
     return (
-        <FilterPage selected={this.props.selected} setSelection={this.setSelection}/>
+        <SourcesPage selected={this.props.selected} setSelection={this.setSelection}/>
     );
   }
 
@@ -58,8 +59,8 @@ class FilterScreen extends Component {
 // which props do we want to inject, given the global state?
 function mapStateToProps(state) {
   return {
-    selected: state.filter.selected,
+    selected: state.sources.selected,
   };
 }
 
-export default connect(mapStateToProps)(FilterScreen);
+export default connect(mapStateToProps)(SourcesScreen);

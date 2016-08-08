@@ -1,9 +1,9 @@
 import app from './app/reducer';
 import counter from './counter/reducer';
-import filter from './filter/reducer';
+import sources from './sources/reducer';
 
 export {
   app,
   counter,
-  filter
+  sources
 };

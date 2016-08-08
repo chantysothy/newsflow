@@ -10,6 +10,7 @@ class SignUpScreen extends Component {
   static navigatorButtons = {
     leftButtons: [
       {
+        icon: require('../../img/cancel.png'),
         title: 'close', // for a textual button, provide the button title (label)
         id: 'close', // id for this button, given in onNavigatorEvent(event) to help understand which button was clicked
       },

@@ -9,7 +9,7 @@ import SettingsList from 'react-native-settings-list';
 import { FirstColor } from '../config/ThemeColors';
 import { Sources } from '../config/Sources';
 
-export default class FilterPage extends Component {
+export default class SourcesPage extends Component {
   static propTypes = {
     selected: React.PropTypes.object,
     setSelection: React.PropTypes.func,

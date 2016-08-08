@@ -38,6 +38,7 @@ export default class DiscoverPage extends Component {
 
   componentWillReceiveProps(nextProps) {
     if(nextProps.selected !== this.props.selected) {
+      // fetch again to force re-render in order to show/hide article
       this.fetchArticles(this._articlesRef);
     }
   }

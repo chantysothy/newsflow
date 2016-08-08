@@ -18,10 +18,11 @@ class DiscoverScreen extends Component {
   };
 
   static navigatorButtons = {
-    rightButtons: [
+    leftButtons: [
       {
-        title: 'Filter', // for a textual button, provide the button title (label)
-        id: 'filter', // id for this button, given in onNavigatorEvent(event) to help understand which button was clicked
+        icon: require('../../img/navicon_menu.png'),
+        title: 'Sources', // for a textual button, provide the button title (label)
+        id: 'sources', // id for this button, given in onNavigatorEvent(event) to help understand which button was clicked
       }
     ]
   };
@@ -31,22 +32,22 @@ class DiscoverScreen extends Component {
 
     this._itemsRef = rootRef.child('exampleItems');
 
-    this.showFilter = this.showFilter.bind(this);
+    this.showSources = this.showSources.bind(this);
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
 
   onNavigatorEvent(event) { // this is the onPress handler for the two buttons together
     if (event.type == 'NavBarButtonPress') { // this is the event type for button presses
-      if (event.id == 'filter') {
-        this.showFilter();
+      if (event.id == 'sources') {
+        this.showSources();
       }
     }
   }
 
-  showFilter() {
+  showSources() {
     this.props.navigator.showModal({
-      screen: "example.FilterScreen", // unique ID registered with Navigation.registerScreen
-      title: "Filter",
+      screen: "example.SourcesScreen", // unique ID registered with Navigation.registerScreen
+      title: "Sources",
       passProps: {}, // simple serializable object that will pass as props to the lightbox (optional)
     });
   }
@@ -62,7 +63,7 @@ class DiscoverScreen extends Component {
 // which props do we want to inject, given the global state?
 function mapStateToProps(state) {
   return {
-    selected: state.filter.selected,
+    selected: state.sources.selected,
   };
 }
 

@@ -2,7 +2,7 @@ import {Navigation} from 'react-native-navigation';
 
 import AccountScreen from './AccountScreen';
 import DiscoverScreen from './DiscoverScreen';
-import FilterScreen from './FilterScreen';
+import SourcesScreen from './SourcesScreen';
 import ItemScreen from './ItemScreen';
 import SignUpScreen from './SignUpScreen';
 
@@ -10,7 +10,7 @@ import SignUpScreen from './SignUpScreen';
 export function registerScreens(store, Provider) {
   Navigation.registerComponent('example.AccountScreen', () => AccountScreen, store, Provider);
   Navigation.registerComponent('example.DiscoverScreen', () => DiscoverScreen, store, Provider);
-  Navigation.registerComponent('example.FilterScreen', () => FilterScreen, store, Provider);
+  Navigation.registerComponent('example.SourcesScreen', () => SourcesScreen, store, Provider);
   Navigation.registerComponent('example.ItemScreen', () => ItemScreen, store, Provider);
   Navigation.registerComponent('example.SignUpScreen', () => SignUpScreen, store, Provider);
 }
