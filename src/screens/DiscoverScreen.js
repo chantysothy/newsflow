@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import DiscoverPage from '../components/DiscoverPage';
 
 import { FirstColor } from '../config/ThemeColors';
-import { rootRef } from '../lib/firebaseInit.js';
 
 // this is a traditional React component connected to the redux store
 class DiscoverScreen extends Component {
@@ -26,8 +25,6 @@ class DiscoverScreen extends Component {
 
   constructor(props) {
     super(props);
-
-    this._itemsRef = rootRef.child('exampleItems');
 
     this.showSources = this.showSources.bind(this);
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));

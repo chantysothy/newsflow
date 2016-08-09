@@ -18,8 +18,8 @@ moment.updateLocale('en', CustomRelativeTime);
 
 export default class ArticleCard extends Component {
   static propTypes = {
-    itemData: React.PropTypes.object,
-    itemKey: React.PropTypes.string,
+    articleData: React.PropTypes.object,
+    articleKey: React.PropTypes.string,
     navigator: React.PropTypes.object
   };
 
@@ -30,7 +30,7 @@ export default class ArticleCard extends Component {
   }
 
   onContentPress() {
-    Browser.open(this.props.itemData.url, {
+    Browser.open(this.props.articleData.url, {
                     showUrlWhileLoading: true,
                     loadingBarTintColor: processColor(FirstColor),
                     navigationButtonsHidden: false,
@@ -50,27 +50,27 @@ export default class ArticleCard extends Component {
         <TouchableOpacity style={{flexDirection: 'row'}}>
           <Text style={{fontSize: 18, color: FirstColor}}><FaIcon name="comment-o" size={23} />&nbsp;0</Text>
         </TouchableOpacity>
-        <Image resizeMode={'contain'} style={{height: 30, width: 60}} source={{uri: this.props.itemData.urlToSourceLogo}}/>
+        <Image resizeMode={'contain'} style={{height: 30, width: 60}} source={{uri: this.props.articleData.urlToSourceLogo}}/>
       </View>;
 
 
     return (
       <View style={styles.cardContainer}>
         <Text style={{color: 'gray', fontWeight: 'bold'}}>
-          {this.props.itemData.sourceName}
+          {this.props.articleData.sourceName}
           &nbsp;&bull;&nbsp;
-          {moment().from(this.props.itemData.timestamp, true)}
+          {moment().from(this.props.articleData.timestamp, true)}
         </Text>
 
         <TouchableOpacity onPress={this.onContentPress}>
-          <Image style={styles.image} source={{uri: this.props.itemData.urlToImage}} />
+          <Image style={styles.image} source={{uri: this.props.articleData.urlToImage}} />
 
           <Text style={styles.title}>
-            {this.props.itemData.title}
+            {this.props.articleData.title}
           </Text>   
 
           <Text style={styles.description}>
-            {this.props.itemData.description}
+            {this.props.articleData.description}
           </Text>
         </TouchableOpacity>
 

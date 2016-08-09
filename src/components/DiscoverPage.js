@@ -47,25 +47,25 @@ export default class DiscoverPage extends Component {
     articlesRef.orderByChild('negativeTimestamp').limitToLast(100).once('value', (snap) => {
 
       // get children as an array
-      let items = [];
+      let articles = [];
       snap.forEach((child) => {
-        items.push({
+        articles.push({
           data: child.val(),
           _key: child.key
         });
       });
 
       this.setState({
-        dataSource: this.state.dataSource.cloneWithRows(items)
+        dataSource: this.state.dataSource.cloneWithRows(articles)
       });
 
     });
   }
 
-  renderRow(item) {
-    let isFromSelectedSource = this.props.sourcesSelected[item.data.sourceId];
+  renderRow(article) {
+    let isFromSelectedSource = this.props.sourcesSelected[article.data.sourceId];
     return (
-     isFromSelectedSource ? <ArticleCard itemData={item.data} itemKey={item._key} navigator={this.props.navigator}/> : null
+     isFromSelectedSource ? <ArticleCard articleData={article.data} articleKey={article._key} navigator={this.props.navigator}/> : null
     );
   }
 
