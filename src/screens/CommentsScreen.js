@@ -1,11 +1,11 @@
 import React, {Component, PropTypes} from 'react';
 import { connect } from 'react-redux';
-import ItemPage from '../components/ItemPage';
+import CommentsPage from '../components/CommentsPage';
 
 import { FirstColor } from '../config/ThemeColors';
 
 // this is a traditional React component connected to the redux store
-class ItemScreen extends Component {
+class CommentsScreen extends Component {
   static navigatorStyle = {
     navBarTextColor: FirstColor,
     navBarBackgroundColor: '#ffffff',
@@ -17,8 +17,8 @@ class ItemScreen extends Component {
   };
 
   static propTypes = {
-    itemData: React.PropTypes.object,
-    itemKey: React.PropTypes.string,
+    articleData: React.PropTypes.object,
+    articleKey: React.PropTypes.string,
   };
 
   constructor(props) {
@@ -27,7 +27,7 @@ class ItemScreen extends Component {
 
   render() {
     return (
-      <ItemPage itemData={this.props.itemData} itemKey={this.props.itemKey}/>
+      <CommentsPage articleData={this.props.articleData} articleKey={this.props.articleKey}/>
     );
   }
 
@@ -40,4 +40,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(ItemScreen);
+export default connect(mapStateToProps)(CommentsScreen);

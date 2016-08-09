@@ -5,13 +5,12 @@ import {
   Image,
   ScrollView
 } from 'react-native';
-import { WebView } from 'react-native';
 import { AdMobBanner, AdMobInterstitial } from 'react-native-admob'
 
-export default class ItemPage extends Component {
+export default class CommentsPage extends Component {
   static propTypes = {
-    itemData: React.PropTypes.object,
-    itemKey: React.PropTypes.string,
+    articleData: React.PropTypes.object,
+    articleKey: React.PropTypes.string,
   };
 
   constructor(props) {

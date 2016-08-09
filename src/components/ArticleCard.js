@@ -27,6 +27,7 @@ export default class ArticleCard extends Component {
     super(props);
 
     this.onContentPress = this.onContentPress.bind(this);
+    this.onCommentIconPress = this.onCommentIconPress.bind(this);
   }
 
   onContentPress() {
@@ -44,10 +45,21 @@ export default class ArticleCard extends Component {
                   });
   }
 
+  onCommentIconPress() {
+    this.props.navigator.push({
+      screen: 'example.CommentsScreen', // unique ID registered with Navigation.registerScreen
+      title: this.props.articleData.title, // navigation bar title of the pushed screen (optional)
+      passProps: {
+        articleData: this.props.articleData,
+        articleKey: this.props.articleKey
+      }, // simple serializable object that will pass as props to the pushed screen (optional)
+    });
+  }
+
   render() {
     let footer = 
       <View style={{marginTop: 3, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
-        <TouchableOpacity style={{flexDirection: 'row'}}>
+        <TouchableOpacity style={{flexDirection: 'row'}} onPress={this.onCommentIconPress}>
           <Text style={{fontSize: 18, color: FirstColor}}><FaIcon name="comment-o" size={23} />&nbsp;0</Text>
         </TouchableOpacity>
         <Image resizeMode={'contain'} style={{height: 30, width: 60}} source={{uri: this.props.articleData.urlToSourceLogo}}/>
